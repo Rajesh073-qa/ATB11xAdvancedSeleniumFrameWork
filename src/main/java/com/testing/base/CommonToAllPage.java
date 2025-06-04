@@ -1,12 +1,15 @@
 package com.testing.base;
 
 import com.testing.utils.PropertiesReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static com.testing.driver.DriverManager.getDriver;
 
 public class CommonToAllPage {
+    Logger logger = LogManager.getLogger();
 
     public CommonToAllPage() {
         // If you want to call something before every Page Object Class call, Put your Code here");
@@ -14,6 +17,7 @@ public class CommonToAllPage {
     }
 
     public void openVWOUrl() {
+        logger.info("Website opened.....");
         getDriver().get(PropertiesReader.readKey("url"));
     }
 
