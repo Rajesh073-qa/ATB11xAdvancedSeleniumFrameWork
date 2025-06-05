@@ -16,11 +16,11 @@ public class LoginPage extends CommonToAllPage {
         this.driver = driver;
     }
 
-    // // Step 1 - Page Locators
-    private By username = By.id("login-username");
-    private By password = By.id("login-password");
-    private By signButton = By.id("js-login-btn");
-    private By error_message = By.id("js-notification-box-msg");
+    // Step 1 - Page Locators
+    private final By username = By.id("login-username");
+    private final By password = By.id("login-password");
+    private final By signButton = By.id("js-login-btn");
+    private final By error_message = By.id("js-notification-box-msg");
 
 
     public String loginToVWOLoginInvalidCreds(String user, String pwd) {

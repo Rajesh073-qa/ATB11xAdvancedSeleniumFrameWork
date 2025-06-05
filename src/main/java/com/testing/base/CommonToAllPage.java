@@ -4,6 +4,7 @@ import com.testing.utils.PropertiesReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import static com.testing.driver.DriverManager.getDriver;
@@ -27,6 +28,14 @@ public class CommonToAllPage {
 
     public void openKatalonUrl() {
         getDriver().get(PropertiesReader.readKey("katalon_url"));
+    }
+
+    public void openAutomationChallenge01() {
+        getDriver().get(PropertiesReader.readKey("challenge1_url"));
+    }
+
+    public void openAutomationChallenge02() {
+        getDriver().get(PropertiesReader.readKey("challenge2_url"));
     }
 
 
@@ -53,5 +62,17 @@ public class CommonToAllPage {
     public String getText(WebElement by) {
         return by.getText();
     }
+
+    public void clickUsingJS(By element) {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", element);
+    }
+
+    public void scrollToElement(By element) {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    public void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
 
 }
